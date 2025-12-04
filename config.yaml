@@ -1,0 +1,87 @@
+jianglaoshversion: STgram-MFN
+description: STgram-MFN
+time_version: False # if set ture, add time information in version
+save_version_files: False # if set true, save each version files in runs
+save_version_file_patterns:
+  - "*.py"
+  - "*.yaml"
+pass_dirs:
+  - '.'
+  - '_'
+  - 'runs'
+  - 'results'
+
+# filepath
+train_dirs:
+  - D:/surx/dataset2020/data/dataset/fan/train
+  - D:/surx/dataset2020/data/dataset/pump/train
+  - D:/surx/dataset2020./data/dataset/slider/train
+  - D:/surx/dataset2020/data/dataset/ToyCar/train
+  - D:/surx/dataset2020/data/dataset/ToyConveyor/train
+  - D:/surx/dataset2020/data/dataset/valve/train
+add_dirs:
+  - D:/surx/dataset2020/data/eval_dataset/fan/train
+  - D:/surx/dataset2020/data/eval_dataset/pump/train
+  - D:/surx/dataset2020/data/eval_dataset/slider/train
+  - D:/surx/dataset2020/data/eval_dataset/ToyCar/train
+  - D:/surx/dataset2020/data/eval_dataset/ToyConveyor/train
+  - D:/surx/dataset2020/data/eval_dataset/valve/train
+valid_dirs:
+  - D:/surx/dataset2020/data/dataset/fan/test
+  - D:/surx/dataset2020/data/dataset/pump/test
+  - D:/surx/dataset2020/data/dataset/slider/test
+  - D:/surx/dataset2020/data/dataset/ToyCar/test
+  - D:/surx/dataset2020/data/dataset/ToyConveyor/test
+  - D:/surx/dataset2020/data/dataset/valve/test
+test_dirs:
+  - D:/surx/dataset2020/data/Testdata/fan/test
+  - D:/surx/dataset2020/data/Testdata/pump/test
+  - D:/surx/dataset2020/data/Testdata/slider/test
+  - D:/surx/dataset2020/data/Testdata/ToyCar/test
+  - D:/surx/dataset2020/data/Testdata/ToyConveyor/test
+  - D:/surx/dataset2020data/Testdata/valve/test
+
+result_dir: ./results
+# audio preprocess
+sr: 16000
+n_fft: 1024
+n_mels: 128
+win_length: 1024
+hop_length: 512
+power: 2.0
+secs: 10
+
+cuda: True
+# train
+random_seed: 42
+epochs: 200
+batch_size: 32
+num_workers: 0
+lr: 1e-4
+device_ids:
+  - 6
+  - 7
+#valid_every_epochs: 1
+#early_stop_epochs: -1
+#start_save_model_epochs: 100
+#save_model_interval_epochs: 1
+#start_scheduler_epoch: 100
+#start_valid_epoch: 1
+valid_every_epochs: 1
+early_stop_epochs: -1
+start_save_model_epochs: 100
+save_model_interval_epochs: 1
+start_scheduler_epoch: 20
+start_valid_epoch: 0
+# loss
+use_arcface: True
+m: 0.7
+s: 30
+sub_center: 1
+
+# anomaly score
+gmm_n: False # if set as a int value, use gmm to fit feature for each ID and estimate anomaly score
+
+
+# test
+load_epoch: False # it will test your model if set a value, e.g. best, 10, 100
