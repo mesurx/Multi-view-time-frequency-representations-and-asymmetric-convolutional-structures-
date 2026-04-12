@@ -16,7 +16,8 @@ $ pip install -r requirements.txt
 + [development dataset](https://zenodo.org/record/3678171)
 + [additional training dataset](https://zenodo.org/record/3727685)
 + [Evaluation dataset](https://zenodo.org/record/3841772)
-data path can be set in config.yaml
+
+  data path can be set in config.yaml
 
 $ python run.py
 
